@@ -1,0 +1,67 @@
+1/23/23
+try diff ratios of length and conductivities
+compare actual results to predicted results, quantify error wrt changes in params
+try coding up robust version of optimization
+try hingeplace
+try link in bookmarks
+
+
+
+next steps:
+	change each conductivity randomly & independently
+	try Chaitanya's version of Tau
+	find out if there is only a multiplicative factor variation of Tau w.r.t. l or is there mistake in code
+
+10/25
+Started by deriving Tau for N=3
+Wrote script for simulating tau under perturbation to conductivities for 3 layers of spherical model
+
+
+
+Model T: neuronal dynamics in some way that is simple enough to optimize with
+
+https://neuronaldynamics.epfl.ch/online/Ch1.S3.html
+
+whole ass book: https://books.google.com/books?hl=en&lr=&id=D4j2AwAAQBAJ&oi=fnd&pg=PR9&dq=neuronal+dynamics&ots=-E0pq1yU0b&sig=GFoAEVi3L1YW1m6VaWq6KUrKpgM#v=onepage&q=neuronal%20dynamics&f=false
+
+
+or https://www.frontiersin.org/articles/10.3389/fninf.2018.00088/full
+
+https://www.frontiersin.org/articles/10.3389/fnhum.2021.652393/full
+https://brain.ieee.org/newsletter/2020-issue-2/bayesian-optimization-for-automated-neurostimulation-future-directions-and-challenges/
+s
+
+Intro:
+
+
+https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9630436
+
+Hingeplace can help by exploiting the threshold activation property of neurons to find more optimal
+electrode placements and currents which does not hold the electric field to 0 outside the 'focus'
+region where activation is wanted, but holding the electric field to below some activation threshold.
+
+As expected, the algorithm performs better than the state-of-the-art, which optimizes with a constraint
+which holds field outside focus region ('cancel' region) to 0 when the threshold is higher.
+
+
+Questions:
+- how are neural activation thresholds determined? is it something we have knowledge about and if so, could we formulate the
+problem w/ this in mind?
+- what are the downsides to smaller currents that don't end up activating neurons?
+- waveforms?
+- how does DCM produce configurations s.t. 
+I will need to do some background reading on how we can produce more concentrated-looking current, such as which the DCM placement solutions produce, without bleeding out significantly outside of a certain region. I'm guessing that the fields produced by the electrodes can cancel out.
+
+
+Description:
+Investigating feasibility of incorporating robust optimization into previous work regarding formulization for optimization of 
+electrode placement for neurostimulation
+
+
+hodgkn huxley 
+neuronaldynamics.epfl.ch/outline/ch1.s3.html (leaky integrate and fire equation)
+
+1 background understanding
+2 given Ac / Af have errors, how to deal w/ them?
+T has error - not perfect. For TI = E, how can we optimize robustly?
+Error within a range.
